@@ -1,14 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rainy-Player App</title>
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style/style.css" />
+  </head>
+  <body>
     <div class="app">
-        <h1>rainy-player</h1>
+      <audio id="audioContainer" src="./src//sound/rainSound.MP3">
+        Your browser does not support audio.
+      </audio>
+      <header class="header">
+        <a href="?"
+          ><h1 class="header-title">
+            <svg
+              class="header-logo"
+              width="50"
+              height="50"
+              viewBox="0 0 50 50"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M11.1924 15.9033C11.5188 15.8527 11.8209 15.7004 12.0557 15.468C12.2904 15.2357 12.4459 14.9352 12.5 14.6094C13.6807 7.43848 18.9092 3.125 25 3.125C30.6572 3.125 34.4355 6.81152 35.957 10.7168C36.0548 10.9671 36.2161 11.1876 36.425 11.3566C36.6339 11.5257 36.8832 11.6373 37.1484 11.6807C42.0312 12.4766 46.0938 15.7373 46.0938 21.4062C46.0938 27.207 41.3477 31.25 35.5469 31.25H12.6953C7.86133 31.25 3.90625 28.8379 3.90625 23.5156C3.90625 18.7822 7.68262 16.4629 11.1924 15.9033V15.9033Z"
+                stroke="#3C3C3C"
+                stroke-width="2.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M37.5 37.5L31.25 46.875M14.0625 37.5L10.9375 42.1875L14.0625 37.5ZM21.875 37.5L15.625 46.875L21.875 37.5ZM29.6875 37.5L26.5625 42.1875L29.6875 37.5Z"
+                stroke="#3C3C3C"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            rainy-player
+          </h1></a
+        >
+      </header>
+
+      <div class="container">
+        <div class="date">
+          <h2>
+            <span class="t-month">March</span><br />
+            <span class="t-date">08</span>,<br />
+            <span class="t-day">monday</span>
+          </h2>
+        </div>
+
+        <div class="timer">
+          <div class="timer-setting">
+            <input
+              type="number"
+              name="minutes"
+              id="minutes"
+              placeholder="00"
+              min="0"
+              max="60"
+              step="1"
+            />
+            <span>:</span>
+            <input
+              type="number"
+              name="seconds"
+              id="seconds"
+              placeholder="00"
+              min="0"
+              max="30"
+              step="1"
+            />
+          </div>
+          <div class="timer-start">
+            <button type="submit" class="timer-start-button">
+              <img class="start-logo" src="./src/svg/play.svg" />
+            </button>
+          </div>
+          <div class="timer-stop hidden">
+            <button type="submit" class="timer-stop-button">
+              <img class="stop-logo" src="./src/svg/stop.svg" />
+            </button>
+          </div>
+        </div>
+        <!-- 재생 시작시 timer가 play-timer로 변환 -->
+
+        <div class="play-timer hidden">
+          <svg
+            class="track-outline"
+            width="500"
+            height="500"
+            viewBox="0 0 500 500"
+            fill="#ffffff6e"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="250" cy="250" r="240" />
+          </svg>
+          <svg
+            class="move-outline"
+            width="500"
+            height="500"
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="250" cy="250" r="240" stroke="#000" stroke-width="20" />
+          </svg>
+        </div>
+
+        <div class="port-land portrait">
+          <span>portrait</span>
+        </div>
+        <!-- 버튼 클릭시 landscape로 변환 -->
+      </div>
+
+      <div class="desc">
+        <h3 class="desc-head">relax with Rainy Sound 🌧</h3>
+        <input
+          type="range"
+          name="volume"
+          id="volume"
+          max="1"
+          step="0.1"
+          class="volume"
+        />
+      </div>
+
+      <footer class="footer">
+        <h6>&copy;thisisyjin</h6>
+        <ul>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/thisisyjin"
+            ><li>github</li></a
+          >
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://mywebproject.tistory.com"
+            ><li>dev blog</li></a
+          >
+          <a href="mailto: thisisyjin@naver.com"><li>contact</li></a>
+        </ul>
+      </footer>
     </div>
-</body>
+
+    <script src="app.js"></script>
+  </body>
 </html>

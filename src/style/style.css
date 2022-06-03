@@ -1,0 +1,402 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  width: 100%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Reset CSS */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  border: none;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  width: 1.5em;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+input:focus,
+input:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* style */
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10%;
+}
+
+#volume {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.3636363636;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+.header-title .header-logo {
+  position: relative;
+  top: 18px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-image: url(../images/landscape.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.app.port {
+  background-image: url(../images/portrait.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 30;
+  height: 800px;
+}
+
+.app.port .container {
+  background: none;
+}
+
+.app.port .header-title,
+.app.port .desc h3 {
+  color: white;
+}
+
+.app.port .header-title .header-logo path {
+  stroke: white;
+}
+
+.app.port .timer {
+  position: absolute;
+  top: 35%;
+}
+/* date */
+
+.date {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 50px;
+  line-height: 1.3666666667;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #fff;
+  text-align: right;
+}
+
+/* timer */
+
+.timer {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+  background-color: #ffffff98;
+  z-index: 11;
+}
+
+.timer::after {
+  visibility: hidden;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  z-index: 10;
+  background-color: rgba(255, 0, 0, 0.219);
+  border-radius: 50%;
+}
+
+.timer .timer-setting {
+  /* position: absolute;
+  top: 200px;
+  left: 200px;
+  transform: translate(-50%, -50%); */
+  width: 400px;
+  font-size: 40px;
+  text-align: center;
+}
+
+.timer .timer-setting input {
+  background-color: transparent;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.03em;
+  color: #000000b6;
+}
+
+.timer .timer-setting input::placeholder {
+  color: #3c3c3c94;
+}
+
+.timer .timer-start {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fff;
+  transition: 0.1s all ease-in;
+}
+
+.timer .timer-start:hover {
+  transform: scale(1.1);
+}
+
+.timer .timer-stop {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #fff;
+  transition: 0.1s all ease-in;
+}
+
+.timer .timer-stop:hover {
+  transform: scale(1.1);
+}
+
+.port-land {
+  position: absolute;
+  bottom: 25px;
+  right: 60px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3c3c3c;
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+
+  transition: 0.2s all ease-in;
+}
+
+.portrait:hover {
+  transform: scale(1.1);
+  color: #ffffffc9;
+  background-image: url('../images/portrait.jpg');
+  background-size: cover;
+  border: 3px solid #ffffff98;
+}
+
+.landscape:hover {
+  transform: scale(1.1);
+  background-image: url('../images/landscape.jpg');
+  background-size: cover;
+  border: 3px solid #ffffff98;
+}
+
+/* desc */
+
+.desc {
+  padding: 20px 0;
+}
+
+.desc h3 {
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* footer */
+
+.footer {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #3c3c3c;
+  color: #fff;
+}
+
+.footer h6 {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #ecebb3;
+}
+
+.footer ul li {
+  padding: 10px 20px;
+  display: inline-block;
+  margin-right: 30px;
+  transition: 0.3s color ease-in-out;
+}
+
+.footer ul li:hover {
+  color: #8396a1;
+}
+
+li :last-child {
+  margin-right: 0;
+}
+
+/* ======
+   반응형 웹
+ ======== */
+
+/* 태블릿 */
+@media screen and (max-width: 1200px) {
+  .app {
+    margin: 0 120px;
+  }
+  .date {
+    right: 35px;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+  }
+
+  .portrait {
+    right: 35px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .timer {
+    top: 20%;
+    left: 4%;
+    width: 350px;
+    height: 350px;
+  }
+
+  .timer .timer-setting {
+    width: 350px;
+  }
+
+  .timer .timer-setting input {
+    font-size: 50px;
+  }
+
+  .timer .timer-start {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* 모바일 */
+@media screen and (max-width: 480px) {
+  .app {
+    margin: 0;
+  }
+
+  .header,
+  .desc {
+    padding: 15px 0;
+  }
+
+  .date {
+    top: 20px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .portrait {
+    right: 15px;
+    width: 58px;
+    height: 58px;
+    font-size: 13px;
+  }
+
+  .timer {
+    top: 40%;
+    left: 3%;
+    width: 250px;
+    height: 250px;
+  }
+
+  .timer .timer-setting {
+    width: 250px;
+  }
+
+  .timer .timer-setting input {
+    font-size: 42px;
+    width: 1.66em;
+  }
+
+  .timer .timer-start {
+    bottom: 10px;
+    left: 20px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .footer {
+    padding: 10px 0;
+  }
+
+  .footer ul {
+    display: none;
+  }
+
+  .footer h6 {
+    font-size: 12px;
+  }
+}
