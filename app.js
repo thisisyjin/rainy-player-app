@@ -102,8 +102,8 @@ const countDownStart = (min, sec) => {
   $stopBtn.addEventListener('click', () => {
     endCount();
     stopMusic();
-    $minutes.value = 0;
-    $seconds.value = 0;
+    $minutes.value = null;
+    $seconds.value = null;
   });
 };
 
@@ -143,10 +143,12 @@ $portland.addEventListener('click', () => {
     isPortrait = true;
     $portland.classList.remove('portrait');
     $portland.classList.add('landscape');
+    $portland.innerText = 'landscape';
   } else {
     isPortrait = false;
     $portland.classList.add('portrait');
     $portland.classList.remove('landscape');
+    $portland.innerText = 'portrait';
   }
   isPortrait ? $app.classList.add('port') : $app.classList.remove('port');
 });
